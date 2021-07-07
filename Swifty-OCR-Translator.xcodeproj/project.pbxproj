@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6275308226945D4900F0524C /* Swifty_OCR_TranslatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6275308126945D4900F0524C /* Swifty_OCR_TranslatorApp.swift */; };
-		6275308426945D4900F0524C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6275308326945D4900F0524C /* ContentView.swift */; };
+		6275308426945D4900F0524C /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6275308326945D4900F0524C /* MainView.swift */; };
 		6275308626945D4A00F0524C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6275308526945D4A00F0524C /* Assets.xcassets */; };
 		6275308926945D4A00F0524C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6275308826945D4A00F0524C /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
@@ -16,7 +16,7 @@
 /* Begin PBXFileReference section */
 		6275307E26945D4900F0524C /* Swifty-OCR-Translator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swifty-OCR-Translator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6275308126945D4900F0524C /* Swifty_OCR_TranslatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swifty_OCR_TranslatorApp.swift; sourceTree = "<group>"; };
-		6275308326945D4900F0524C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		6275308326945D4900F0524C /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		6275308526945D4A00F0524C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6275308826945D4A00F0524C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		6275308A26945D4A00F0524C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -54,7 +54,7 @@
 			isa = PBXGroup;
 			children = (
 				6275308126945D4900F0524C /* Swifty_OCR_TranslatorApp.swift */,
-				6275308326945D4900F0524C /* ContentView.swift */,
+				6275308326945D4900F0524C /* MainView.swift */,
 				6275308526945D4A00F0524C /* Assets.xcassets */,
 				6275308A26945D4A00F0524C /* Info.plist */,
 				6275308B26945D4A00F0524C /* Swifty_OCR_Translator.entitlements */,
@@ -140,7 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6275308426945D4900F0524C /* ContentView.swift in Sources */,
+				6275308426945D4900F0524C /* MainView.swift in Sources */,
 				6275308226945D4900F0524C /* Swifty_OCR_TranslatorApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,7 +280,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "dev.PangMo5.Swifty-OCR-Translator";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -304,7 +304,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "dev.PangMo5.Swifty-OCR-Translator";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

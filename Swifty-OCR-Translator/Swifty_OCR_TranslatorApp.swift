@@ -11,7 +11,7 @@ import SwiftUI
 struct Swifty_OCR_TranslatorApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView()
         }
     }
 }
