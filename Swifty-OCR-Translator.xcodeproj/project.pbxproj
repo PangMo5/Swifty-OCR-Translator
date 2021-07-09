@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,6 +11,8 @@
 		6275308426945D4900F0524C /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6275308326945D4900F0524C /* MainView.swift */; };
 		6275308626945D4A00F0524C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6275308526945D4A00F0524C /* Assets.xcassets */; };
 		6275308926945D4A00F0524C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6275308826945D4A00F0524C /* Preview Assets.xcassets */; };
+		62B0A6E9269803C500099685 /* Magnet in Frameworks */ = {isa = PBXBuildFile; productRef = 62B0A6E8269803C500099685 /* Magnet */; };
+		62B870132698194E0078BFB2 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B870122698194E0078BFB2 /* MainViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +23,7 @@
 		6275308826945D4A00F0524C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		6275308A26945D4A00F0524C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6275308B26945D4A00F0524C /* Swifty_OCR_Translator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Swifty_OCR_Translator.entitlements; sourceTree = "<group>"; };
+		62B870122698194E0078BFB2 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -28,6 +31,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62B0A6E9269803C500099685 /* Magnet in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,8 +57,9 @@
 		6275308026945D4900F0524C /* Swifty-OCR-Translator */ = {
 			isa = PBXGroup;
 			children = (
+				62B87011269819080078BFB2 /* ViewModels */,
+				62B87010269818FE0078BFB2 /* Views */,
 				6275308126945D4900F0524C /* Swifty_OCR_TranslatorApp.swift */,
-				6275308326945D4900F0524C /* MainView.swift */,
 				6275308526945D4A00F0524C /* Assets.xcassets */,
 				6275308A26945D4A00F0524C /* Info.plist */,
 				6275308B26945D4A00F0524C /* Swifty_OCR_Translator.entitlements */,
@@ -69,6 +74,22 @@
 				6275308826945D4A00F0524C /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		62B87010269818FE0078BFB2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6275308326945D4900F0524C /* MainView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		62B87011269819080078BFB2 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				62B870122698194E0078BFB2 /* MainViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -87,6 +108,9 @@
 			dependencies = (
 			);
 			name = "Swifty-OCR-Translator";
+			packageProductDependencies = (
+				62B0A6E8269803C500099685 /* Magnet */,
+			);
 			productName = "Swifty-OCR-Translator";
 			productReference = 6275307E26945D4900F0524C /* Swifty-OCR-Translator.app */;
 			productType = "com.apple.product-type.application";
@@ -114,6 +138,9 @@
 				Base,
 			);
 			mainGroup = 6275307526945D4900F0524C;
+			packageReferences = (
+				62B0A6E7269803C500099685 /* XCRemoteSwiftPackageReference "Magnet" */,
+			);
 			productRefGroup = 6275307F26945D4900F0524C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -142,6 +169,7 @@
 			files = (
 				6275308426945D4900F0524C /* MainView.swift in Sources */,
 				6275308226945D4900F0524C /* Swifty_OCR_TranslatorApp.swift in Sources */,
+				62B870132698194E0078BFB2 /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,7 +308,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "dev.PangMo5.Swifty-OCR-Translator";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -304,7 +332,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "dev.PangMo5.Swifty-OCR-Translator";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -333,6 +361,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		62B0A6E7269803C500099685 /* XCRemoteSwiftPackageReference "Magnet" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Clipy/Magnet";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.3.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		62B0A6E8269803C500099685 /* Magnet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 62B0A6E7269803C500099685 /* XCRemoteSwiftPackageReference "Magnet" */;
+			productName = Magnet;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6275307626945D4900F0524C /* Project object */;
 }
