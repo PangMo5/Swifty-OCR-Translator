@@ -1,18 +1,25 @@
 //
-//  MainViewModel.swift
+//  MenuViewModel.swift
 //  Swifty-OCR-Translator
 //
 //  Created by PangMo5 on 2021/07/09.
 //
 
 import AppKit
+import Combine
+import CombineMoya
+import Defaults
+import LanguageTranslatorV3
 import Magnet
 import Vision
 
-final class MainViewModel: ObservableObject {
+final class MenuViewModel: ObservableObject {
+    private var cancellables = Set<AnyCancellable>()
     @Published
     var strs = [String]()
-
+    @Published
+    var translated = [String]()
+    
     init() {
         if let keyCombo = KeyCombo(key: .one, cocoaModifiers: [.command, .shift]) {
             let hotKey = HotKey(identifier: "CommandShiftOne", keyCombo: keyCombo) { _ in
@@ -61,5 +68,24 @@ final class MainViewModel: ObservableObject {
 
         print(recognizedStrings)
         strs = recognizedStrings
+        translate(textList: [strs.joined(separator: " ")])
+    }
+
+    func translate(textList: [String]) {
+        let authenticator = WatsonIAMAuthenticator(apiKey: Defaults[.apiKey])
+        let languageTranslator = LanguageTranslator(version: "2018-05-01", authenticator: authenticator)
+        languageTranslator.serviceURL = Defaults[.apiURL]
+
+        languageTranslator.translate(text: textList, modelID: "en-ko") {
+            response, error in
+
+            guard let translation = response?.result else {
+                print(error?.localizedDescription ?? "unknown error")
+                return
+            }
+
+            self.translated = translation.translations.map(\.translation)
+            print(translation)
+        }
     }
 }

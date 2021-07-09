@@ -5,18 +5,21 @@
 //  Created by PangMo5 on 2021/07/06.
 //
 
+import Defaults
 import SwiftUI
 
 struct MainView: View {
-    @StateObject
-    var viewModel = MainViewModel()
+    @Default(.apiURL)
+    var apiURL
+    @Default(.apiKey)
+    var apiKey
 
     var body: some View {
-        VStack {
-            ForEach(viewModel.strs, id: \.self) {
-                Text($0)
-            }
+        Form {
+            TextField("API URL", text: $apiURL)
+            SecureField("API Key", text: $apiKey)
         }
+        .padding()
     }
 }
 
