@@ -1,4 +1,4 @@
-# Swifty-OCR-Translator
+# Swifty-OCR-Translator <img src="https://user-images.githubusercontent.com/16532526/125602894-9c4de3ae-fc07-4999-bab4-a8f7c090a5b8.png" align="right" height="128" />
 Screen translator for macOS with Apple Vision API and IBM Watson, Google Cloud Translator
 
 ## Usage
@@ -9,3 +9,7 @@ Screen translator for macOS with Apple Vision API and IBM Watson, Google Cloud T
 5. Drag the area with the text you want to translate.
 
 https://user-images.githubusercontent.com/16532526/125570720-31671575-c025-4368-8aa6-2c0dab9c78d3.mov
+
+## Credits
+### App Icon
+- 화라낙현
