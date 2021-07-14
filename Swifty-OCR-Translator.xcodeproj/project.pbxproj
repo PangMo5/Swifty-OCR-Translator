@@ -23,6 +23,7 @@
 		62EB5C28269E93C2001DA95A /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 62EB5C27269E93C2001DA95A /* CombineMoya */; };
 		62EB5C2A269E93CC001DA95A /* GoogleTranslateAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62EB5C29269E93CC001DA95A /* GoogleTranslateAPI.swift */; };
 		62EB5C2C269E9626001DA95A /* GoogleTranslateModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62EB5C2B269E9626001DA95A /* GoogleTranslateModels.swift */; };
+		62EB5C2E269EA616001DA95A /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62EB5C2D269EA616001DA95A /* MainViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		62EB5C1D269E8421001DA95A /* APIInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIInfo.swift; sourceTree = "<group>"; };
 		62EB5C29269E93CC001DA95A /* GoogleTranslateAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleTranslateAPI.swift; sourceTree = "<group>"; };
 		62EB5C2B269E9626001DA95A /* GoogleTranslateModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleTranslateModels.swift; sourceTree = "<group>"; };
+		62EB5C2D269EA616001DA95A /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				62B870122698194E0078BFB2 /* MenuViewModel.swift */,
+				62EB5C2D269EA616001DA95A /* MainViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 				62B8701826981DAF0078BFB2 /* MenuView.swift in Sources */,
 				62EB5C2A269E93CC001DA95A /* GoogleTranslateAPI.swift in Sources */,
 				6275308226945D4900F0524C /* Swifty_OCR_TranslatorApp.swift in Sources */,
+				62EB5C2E269EA616001DA95A /* MainViewModel.swift in Sources */,
 				62B8701B269823910078BFB2 /* Defaults++.swift in Sources */,
 				62EB5C2C269E9626001DA95A /* GoogleTranslateModels.swift in Sources */,
 				62B870132698194E0078BFB2 /* MenuViewModel.swift in Sources */,

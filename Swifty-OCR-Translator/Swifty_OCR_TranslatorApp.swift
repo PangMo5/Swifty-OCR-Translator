@@ -39,10 +39,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         statusItem?.button?.image = NSImage(systemSymbolName: "mail.and.text.magnifyingglass", accessibilityDescription: nil)
         statusItem?.button?.image?.isTemplate = true
 
-        
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-//            self.statusItem?.menu?.popUp(positioning: menuItem, at: NSPoint(x: 0, y: self.statusItem?.button?.frame.height ?? 0),
-//                                         in: self.statusItem?.button)
-//        }
+        NotificationCenter.default.addObserver(forName: .init(rawValue: "FinishedTranslate"), object: nil, queue: nil) { _ in
+            self.statusItem?.menu?.popUp(positioning: menuItem,
+                                         at: NSPoint(x: 0, y: self.statusItem?.button?.frame.height ?? 0),
+                                         in: self.statusItem?.button)
+        }
     }
 }

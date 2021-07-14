@@ -11,7 +11,7 @@ import Moya
 
 enum GoogleTranslateAPI {
     case detect(q: String)
-    case translate(q: [String], target: String, source: String, format: String = "text", model: String = "base")
+    case translate(q: [String], target: String, source: String, format: String = "text")
     case supportedLanguages
 }
 
@@ -51,14 +51,13 @@ extension GoogleTranslateAPI: TargetType {
             parameters["key"] = Defaults[.apiInfoDict][.google]?.key
             parameters["q"] = q
             return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
-        case let .translate(q, target, source, format, model):
+        case let .translate(q, target, source, format):
             var parameters = [String: Any]()
             parameters["key"] = Defaults[.apiInfoDict][.google]?.key
             parameters["q"] = q
             parameters["target"] = target
             parameters["source"] = source
             parameters["format"] = format
-            parameters["model"] = model
             return .requestParameters(parameters: parameters, encoding: URLEncoding(arrayEncoding: .noBrackets))
         case .supportedLanguages:
             var parameters = [String: Any]()

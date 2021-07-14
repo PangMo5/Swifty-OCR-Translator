@@ -89,29 +89,40 @@ final class MenuViewModel: ObservableObject {
         let languageTranslator = LanguageTranslator(version: "2018-05-01", authenticator: authenticator)
         languageTranslator.serviceURL = Defaults[.apiInfoDict].current.url
 
-        languageTranslator.translate(text: textList, modelID: "en-ko") { [weak self] response, error in
+        languageTranslator
+            .translate(text: textList,
+                       modelID: "\(Defaults[.selectedSourceLanuage])-\(Defaults[.selectedTargetLanuage])") { [weak self] response, error in
 
-            guard let translation = response?.result else {
-                print(error?.localizedDescription ?? "unknown error")
-                return
-            }
+                guard let translation = response?.result else {
+                    print(error?.localizedDescription ?? "unknown error")
+                    return
+                }
 
-            DispatchQueue.main.async {
-                self?.translated = translation.translations.map(\.translation)
+                DispatchQueue.main.async {
+                    self?.translated = translation.translations.map(\.translation)
+                    self?.finishedTranslate()
+                }
+                print(translation)
             }
-            print(translation)
-        }
     }
 
     fileprivate func translateWithGoogle(textList: [String]) {
-        googleTranslateProvider.requestPublisher(.translate(q: textList, target: "ko", source: "en"))
+        googleTranslateProvider
+            .requestPublisher(.translate(q: textList, target: Defaults[.selectedTargetLanuage], source: Defaults[.selectedSourceLanuage]))
             .map(GoogleTranslateAPIResponse.Translations.self, atKeyPath: "data")
             .print()
             .replaceError(with: .init(translations: []))
             .map {
                 $0.translations.map(\.translatedText)
             }
-            .assign(to: \.translated, on: self)
+            .sink(receiveValue: { [weak self] response in
+                self?.translated = response
+                self?.finishedTranslate()
+            })
             .store(in: &cancellables)
+    }
+    
+    func finishedTranslate() {
+        NotificationCenter.default.post(name: .init(rawValue: "FinishedTranslate"), object: nil)
     }
 }

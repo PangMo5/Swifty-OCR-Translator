@@ -14,12 +14,10 @@ extension GoogleTranslateAPIResponse {
         var languages: [Language]
     }
 
-    /// keyPath: data
     struct Detections: Codable {
         var detections: [Detection]
     }
 
-    /// keyPath: data
     struct Translations: Codable {
         var translations: [Translation]
     }

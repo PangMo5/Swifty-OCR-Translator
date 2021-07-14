@@ -9,6 +9,12 @@ import Defaults
 import SwiftUI
 
 struct MainView: View {
+    @StateObject
+    var viewModel = MainViewModel()
+    @Default(.selectedSourceLanuage)
+    var selectedSourceLanuage
+    @Default(.selectedTargetLanuage)
+    var selectedTargetLanuage
     @Default(.selectedTranslator)
     var selectedTranslator
     @Default(.apiInfoDict)
@@ -16,6 +22,18 @@ struct MainView: View {
 
     var body: some View {
         Form {
+            Picker("Source Language", selection: $selectedSourceLanuage) {
+                ForEach(viewModel.supportedOCRLanguages, id: \.self) {
+                    Text($0.toLocalized)
+                        .tag($0)
+                }
+            }
+            Picker("Target Language", selection: $selectedTargetLanuage) {
+                ForEach(viewModel.supportedTargetLanuages, id: \.self) {
+                    Text($0.toLocalized)
+                        .tag($0)
+                }
+            }
             Picker("Translator", selection: $selectedTranslator) {
                 ForEach(Translator.allCases, id: \.self) {
                     Text($0.localized)
