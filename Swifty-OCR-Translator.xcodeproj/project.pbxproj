@@ -382,6 +382,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Swifty-OCR-Translator/Swifty_OCR_Translator.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_ASSET_PATHS = "\"Swifty-OCR-Translator/Preview Content\"";
 				DEVELOPMENT_TEAM = 4BHXT8RHFR;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -406,6 +407,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Swifty-OCR-Translator/Swifty_OCR_Translator.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_ASSET_PATHS = "\"Swifty-OCR-Translator/Preview Content\"";
 				DEVELOPMENT_TEAM = 4BHXT8RHFR;
 				ENABLE_HARDENED_RUNTIME = YES;
