@@ -53,7 +53,7 @@ final class MenuViewModel: ObservableObject {
 
         let request = VNRecognizeTextRequest(completionHandler: recognizeTextHandler(request:error:))
         request.recognitionLevel = .accurate
-        request.recognitionLanguages = ["en-US", "fr-FR", "it-IT", "de-DE", "es-ES", "pt-BR", "zh-Hans", "zh-Hant"]
+        request.recognitionLanguages = ["zh-Hans", "zh-Hant", "en-US", "fr-FR", "it-IT", "de-DE", "es-ES", "pt-BR"]
         request.usesLanguageCorrection = true
         do {
             try requestHandler.perform([request])
@@ -123,7 +123,7 @@ final class MenuViewModel: ObservableObject {
             })
             .store(in: &cancellables)
     }
-    
+
     func finishedTranslate() {
         latestTranslator = Defaults[.selectedTranslator]
         NotificationCenter.default.post(name: .init(rawValue: "FinishedTranslate"), object: nil)
