@@ -23,6 +23,8 @@ final class MenuViewModel: ObservableObject {
     var strs = [String]()
     @Published
     var translated = [String]()
+    @Published
+    var latestTranslator: Translator?
 
     init() {
         if let keyCombo = KeyCombo(key: .one, cocoaModifiers: [.command, .shift]) {
@@ -123,6 +125,7 @@ final class MenuViewModel: ObservableObject {
     }
     
     func finishedTranslate() {
+        latestTranslator = Defaults[.selectedTranslator]
         NotificationCenter.default.post(name: .init(rawValue: "FinishedTranslate"), object: nil)
     }
 }

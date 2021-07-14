@@ -28,6 +28,12 @@ struct MenuView: View {
                     ForEach(viewModel.translated, id: \.self) {
                         Text($0)
                     }
+                    if let latestTranslator = viewModel.latestTranslator?.localized {
+                        Text("Translated by \(latestTranslator)")
+                            .font(.callout)
+                            .frame(maxWidth: .infinity, alignment: .trailing)
+                            .padding(.top, 16)
+                    }
                 }
                 .padding()
             }
