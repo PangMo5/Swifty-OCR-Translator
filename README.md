@@ -4,7 +4,7 @@ Screen translator for macOS with Apple Vision API and IBM, Google
 ## Usage
 1. Select Translator
 2. Fill in the API fields for each translator.
-3. Set Source and Target lanuages
+3. Select Source and Target lanuages
 4. Press [cmd + shift + 1] 
 5. Drag the area with the text you want to translate.
 
