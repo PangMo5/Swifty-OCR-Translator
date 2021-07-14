@@ -17,6 +17,12 @@
 		62B8701826981DAF0078BFB2 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B8701726981DAF0078BFB2 /* MenuView.swift */; };
 		62B8701B269823910078BFB2 /* Defaults++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B8701A269823910078BFB2 /* Defaults++.swift */; };
 		62B8702726982FC60078BFB2 /* LanguageTranslatorV3 in Frameworks */ = {isa = PBXBuildFile; productRef = 62B8702626982FC60078BFB2 /* LanguageTranslatorV3 */; };
+		62EB5C1B269E839F001DA95A /* Translator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62EB5C1A269E839F001DA95A /* Translator.swift */; };
+		62EB5C1E269E8421001DA95A /* APIInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62EB5C1D269E8421001DA95A /* APIInfo.swift */; };
+		62EB5C26269E93A9001DA95A /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 62EB5C25269E93A9001DA95A /* Moya */; };
+		62EB5C28269E93C2001DA95A /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 62EB5C27269E93C2001DA95A /* CombineMoya */; };
+		62EB5C2A269E93CC001DA95A /* GoogleTranslateAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62EB5C29269E93CC001DA95A /* GoogleTranslateAPI.swift */; };
+		62EB5C2C269E9626001DA95A /* GoogleTranslateModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62EB5C2B269E9626001DA95A /* GoogleTranslateModels.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +36,10 @@
 		62B870122698194E0078BFB2 /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
 		62B8701726981DAF0078BFB2 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		62B8701A269823910078BFB2 /* Defaults++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Defaults++.swift"; sourceTree = "<group>"; };
+		62EB5C1A269E839F001DA95A /* Translator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Translator.swift; sourceTree = "<group>"; };
+		62EB5C1D269E8421001DA95A /* APIInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIInfo.swift; sourceTree = "<group>"; };
+		62EB5C29269E93CC001DA95A /* GoogleTranslateAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleTranslateAPI.swift; sourceTree = "<group>"; };
+		62EB5C2B269E9626001DA95A /* GoogleTranslateModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleTranslateModels.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +49,8 @@
 			files = (
 				62B8701626981B0E0078BFB2 /* Defaults in Frameworks */,
 				62B0A6E9269803C500099685 /* Magnet in Frameworks */,
+				62EB5C26269E93A9001DA95A /* Moya in Frameworks */,
+				62EB5C28269E93C2001DA95A /* CombineMoya in Frameworks */,
 				62B8702726982FC60078BFB2 /* LanguageTranslatorV3 in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -66,6 +78,9 @@
 		6275308026945D4900F0524C /* Swifty-OCR-Translator */ = {
 			isa = PBXGroup;
 			children = (
+				62EB5C21269E9199001DA95A /* APIs */,
+				62EB5C1C269E840B001DA95A /* Models */,
+				62EB5C19269E838A001DA95A /* Enums */,
 				62B87019269823870078BFB2 /* Extensions */,
 				62B87011269819080078BFB2 /* ViewModels */,
 				62B87010269818FE0078BFB2 /* Views */,
@@ -118,6 +133,31 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		62EB5C19269E838A001DA95A /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				62EB5C1A269E839F001DA95A /* Translator.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		62EB5C1C269E840B001DA95A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				62EB5C1D269E8421001DA95A /* APIInfo.swift */,
+				62EB5C2B269E9626001DA95A /* GoogleTranslateModels.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		62EB5C21269E9199001DA95A /* APIs */ = {
+			isa = PBXGroup;
+			children = (
+				62EB5C29269E93CC001DA95A /* GoogleTranslateAPI.swift */,
+			);
+			path = APIs;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -138,6 +178,8 @@
 				62B0A6E8269803C500099685 /* Magnet */,
 				62B8701526981B0E0078BFB2 /* Defaults */,
 				62B8702626982FC60078BFB2 /* LanguageTranslatorV3 */,
+				62EB5C25269E93A9001DA95A /* Moya */,
+				62EB5C27269E93C2001DA95A /* CombineMoya */,
 			);
 			productName = "Swifty-OCR-Translator";
 			productReference = 6275307E26945D4900F0524C /* Swifty-OCR-Translator.app */;
@@ -170,6 +212,7 @@
 				62B0A6E7269803C500099685 /* XCRemoteSwiftPackageReference "Magnet" */,
 				62B8701426981B0E0078BFB2 /* XCRemoteSwiftPackageReference "Defaults" */,
 				62B8702526982FC60078BFB2 /* XCRemoteSwiftPackageReference "swift-sdk" */,
+				62EB5C24269E93A9001DA95A /* XCRemoteSwiftPackageReference "moya" */,
 			);
 			productRefGroup = 6275307F26945D4900F0524C /* Products */;
 			projectDirPath = "";
@@ -198,10 +241,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				6275308426945D4900F0524C /* MainView.swift in Sources */,
+				62EB5C1B269E839F001DA95A /* Translator.swift in Sources */,
 				62B8701826981DAF0078BFB2 /* MenuView.swift in Sources */,
+				62EB5C2A269E93CC001DA95A /* GoogleTranslateAPI.swift in Sources */,
 				6275308226945D4900F0524C /* Swifty_OCR_TranslatorApp.swift in Sources */,
 				62B8701B269823910078BFB2 /* Defaults++.swift in Sources */,
+				62EB5C2C269E9626001DA95A /* GoogleTranslateModels.swift in Sources */,
 				62B870132698194E0078BFB2 /* MenuViewModel.swift in Sources */,
+				62EB5C1E269E8421001DA95A /* APIInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,6 +466,14 @@
 				minimumVersion = 4.0.0;
 			};
 		};
+		62EB5C24269E93A9001DA95A /* XCRemoteSwiftPackageReference "moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/moya/moya";
+			requirement = {
+				kind = exactVersion;
+				version = "15.0.0-alpha.1";
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -436,6 +491,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 62B8702526982FC60078BFB2 /* XCRemoteSwiftPackageReference "swift-sdk" */;
 			productName = LanguageTranslatorV3;
+		};
+		62EB5C25269E93A9001DA95A /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 62EB5C24269E93A9001DA95A /* XCRemoteSwiftPackageReference "moya" */;
+			productName = Moya;
+		};
+		62EB5C27269E93C2001DA95A /* CombineMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 62EB5C24269E93A9001DA95A /* XCRemoteSwiftPackageReference "moya" */;
+			productName = CombineMoya;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

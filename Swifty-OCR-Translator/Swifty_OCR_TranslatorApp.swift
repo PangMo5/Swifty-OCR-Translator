@@ -15,6 +15,7 @@ struct Swifty_OCR_TranslatorApp: App {
     var body: some Scene {
         WindowGroup {
             MainView()
+                .frame(minWidth: 300, idealWidth: 300, minHeight: 200, idealHeight: 200)
         }
     }
 }

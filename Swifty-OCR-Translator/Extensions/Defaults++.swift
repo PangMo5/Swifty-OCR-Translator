@@ -8,6 +8,6 @@
 import Defaults
 
 extension Defaults.Keys {
-    static let apiURL = Key<String>("apiURL", default: "")
-    static let apiKey = Key<String>("apiKey", default: "")
+    static let selectedTranslator = Key<Translator>("selectedTranslator", default: .allCases.first!)
+    static let apiInfoDict = Key<[Translator: APIInfo]>("apiInfoDict", default: [:])
 }

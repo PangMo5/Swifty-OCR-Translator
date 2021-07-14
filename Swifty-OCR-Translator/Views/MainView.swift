@@ -9,15 +9,25 @@ import Defaults
 import SwiftUI
 
 struct MainView: View {
-    @Default(.apiURL)
-    var apiURL
-    @Default(.apiKey)
-    var apiKey
+    @Default(.selectedTranslator)
+    var selectedTranslator
+    @Default(.apiInfoDict)
+    var apiInfoDict
 
     var body: some View {
         Form {
-            TextField("API URL", text: $apiURL)
-            SecureField("API Key", text: $apiKey)
+            Picker("Translator", selection: $selectedTranslator) {
+                ForEach(Translator.allCases, id: \.self) {
+                    Text($0.localized)
+                        .tag($0)
+                }
+            }
+            if selectedTranslator.requierdFields.contains(.url) {
+                TextField("API URL", text: $apiInfoDict.current.url)
+            }
+            if selectedTranslator.requierdFields.contains(.key) {
+                SecureField("API Key", text: $apiInfoDict.current.key)
+            }
         }
         .padding()
     }

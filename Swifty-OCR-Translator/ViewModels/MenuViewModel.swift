@@ -11,15 +11,19 @@ import CombineMoya
 import Defaults
 import LanguageTranslatorV3
 import Magnet
+import Moya
 import Vision
 
 final class MenuViewModel: ObservableObject {
     private var cancellables = Set<AnyCancellable>()
+
+    fileprivate var googleTranslateProvider = MoyaProvider<GoogleTranslateAPI>()
+
     @Published
     var strs = [String]()
     @Published
     var translated = [String]()
-    
+
     init() {
         if let keyCombo = KeyCombo(key: .one, cocoaModifiers: [.command, .shift]) {
             let hotKey = HotKey(identifier: "CommandShiftOne", keyCombo: keyCombo) { _ in
@@ -29,7 +33,7 @@ final class MenuViewModel: ObservableObject {
         }
     }
 
-    func takeScreenshot() {
+    fileprivate func takeScreenshot() {
         let path = FileManager.default.temporaryDirectory.appendingPathComponent("\(UUID().uuidString).png")
         let task = Process()
         task.launchPath = "/usr/sbin/screencapture"
@@ -39,7 +43,7 @@ final class MenuViewModel: ObservableObject {
         requestRecognizeText(with: path.path)
     }
 
-    func requestRecognizeText(with urlPath: String) {
+    fileprivate func requestRecognizeText(with urlPath: String) {
         let image = NSImage(contentsOfFile: urlPath)
         guard let cgImage = image?.cgImage(forProposedRect: nil, context: nil, hints: nil) else { return }
         // Create a new image-request handler.
@@ -56,7 +60,7 @@ final class MenuViewModel: ObservableObject {
         }
     }
 
-    func recognizeTextHandler(request: VNRequest, error: Error?) {
+    fileprivate func recognizeTextHandler(request: VNRequest, error: Error?) {
         guard let observations =
             request.results as? [VNRecognizedTextObservation]
         else {
@@ -68,24 +72,46 @@ final class MenuViewModel: ObservableObject {
 
         print(recognizedStrings)
         strs = recognizedStrings
-        translate(textList: [strs.joined(separator: " ")])
+        translate(textList: strs)
     }
 
-    func translate(textList: [String]) {
-        let authenticator = WatsonIAMAuthenticator(apiKey: Defaults[.apiKey])
-        let languageTranslator = LanguageTranslator(version: "2018-05-01", authenticator: authenticator)
-        languageTranslator.serviceURL = Defaults[.apiURL]
+    fileprivate func translate(textList: [String]) {
+        switch Defaults[.selectedTranslator] {
+        case .ibm:
+            translateWithIBM(textList: textList)
+        case .google:
+            translateWithGoogle(textList: textList)
+        }
+    }
 
-        languageTranslator.translate(text: textList, modelID: "en-ko") {
-            response, error in
+    fileprivate func translateWithIBM(textList: [String]) {
+        let authenticator = WatsonIAMAuthenticator(apiKey: Defaults[.apiInfoDict].current.key)
+        let languageTranslator = LanguageTranslator(version: "2018-05-01", authenticator: authenticator)
+        languageTranslator.serviceURL = Defaults[.apiInfoDict].current.url
+
+        languageTranslator.translate(text: textList, modelID: "en-ko") { [weak self] response, error in
 
             guard let translation = response?.result else {
                 print(error?.localizedDescription ?? "unknown error")
                 return
             }
 
-            self.translated = translation.translations.map(\.translation)
+            DispatchQueue.main.async {
+                self?.translated = translation.translations.map(\.translation)
+            }
             print(translation)
         }
+    }
+
+    fileprivate func translateWithGoogle(textList: [String]) {
+        googleTranslateProvider.requestPublisher(.translate(q: textList, target: "ko", source: "en"))
+            .map(GoogleTranslateAPIResponse.Translations.self, atKeyPath: "data")
+            .print()
+            .replaceError(with: .init(translations: []))
+            .map {
+                $0.translations.map(\.translatedText)
+            }
+            .assign(to: \.translated, on: self)
+            .store(in: &cancellables)
     }
 }
