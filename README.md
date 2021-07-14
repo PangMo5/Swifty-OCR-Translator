@@ -1,5 +1,5 @@
 # Swifty-OCR-Translator
-Image translator for macOS with Apple Vision API and IBM Watson
+Image translator for macOS with Apple Vision API and IBM, Google
 
 **WIP**
 
