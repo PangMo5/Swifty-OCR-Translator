@@ -1,5 +1,5 @@
 # Swifty-OCR-Translator
-Screen translator for macOS with Apple Vision API and IBM, Google
+Screen translator for macOS with Apple Vision API and IBM Watson, Google Cloud Translator
 
 ## Usage
 1. Select Translator
