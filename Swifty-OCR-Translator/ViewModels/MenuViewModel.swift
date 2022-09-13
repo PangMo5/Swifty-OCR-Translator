@@ -53,7 +53,10 @@ final class MenuViewModel: ObservableObject {
 
         let request = VNRecognizeTextRequest(completionHandler: recognizeTextHandler(request:error:))
         request.recognitionLevel = .accurate
-        request.recognitionLanguages = ["zh-Hans", "zh-Hant", "en-US", "fr-FR", "it-IT", "de-DE", "es-ES", "pt-BR"]
+        var languages = Language.allCases
+        languages.removeAll(where: { $0 == Defaults[.selectedSourceLanuage] })
+        languages.insert(Defaults[.selectedSourceLanuage], at: 0)
+        request.recognitionLanguages = languages.map(\.toLocaleStrings).flatMap { $0 }
         request.usesLanguageCorrection = true
         do {
             try requestHandler.perform([request])
@@ -92,8 +95,10 @@ final class MenuViewModel: ObservableObject {
         languageTranslator.serviceURL = Defaults[.apiInfoDict].current.url
 
         languageTranslator
-            .translate(text: textList,
-                       modelID: "\(Defaults[.selectedSourceLanuage])-\(Defaults[.selectedTargetLanuage])") { [weak self] response, error in
+            .translate(
+                text: textList,
+                modelID: "\(Defaults[.selectedSourceLanuage].rawValue)-\(Defaults[.selectedTargetLanuage])"
+            ) { [weak self] response, error in
 
                 guard let translation = response?.result else {
                     print(error?.localizedDescription ?? "unknown error")
@@ -110,7 +115,7 @@ final class MenuViewModel: ObservableObject {
 
     fileprivate func translateWithGoogle(textList: [String]) {
         googleTranslateProvider
-            .requestPublisher(.translate(q: textList, target: Defaults[.selectedTargetLanuage], source: Defaults[.selectedSourceLanuage]))
+            .requestPublisher(.translate(q: textList, target: Defaults[.selectedTargetLanuage], source: Defaults[.selectedSourceLanuage].rawValue))
             .map(GoogleTranslateAPIResponse.Translations.self, atKeyPath: "data")
             .print()
             .replaceError(with: .init(translations: []))

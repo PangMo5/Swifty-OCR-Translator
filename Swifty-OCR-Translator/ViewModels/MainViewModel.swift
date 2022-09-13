@@ -17,7 +17,7 @@ final class MainViewModel: ObservableObject {
     fileprivate var googleTranslateProvider = MoyaProvider<GoogleTranslateAPI>()
 
     @Published
-    var supportedOCRLanguages = ["en", "fr", "it", "de", "es", "pt", "zh"]
+    var supportedOCRLanguages = Language.allCases
     @Published
     var supportedTargetLanuages = [String]()
 

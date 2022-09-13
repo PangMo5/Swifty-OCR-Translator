@@ -17,6 +17,7 @@
 		62B8701826981DAF0078BFB2 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B8701726981DAF0078BFB2 /* MenuView.swift */; };
 		62B8701B269823910078BFB2 /* Defaults++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B8701A269823910078BFB2 /* Defaults++.swift */; };
 		62B8702726982FC60078BFB2 /* LanguageTranslatorV3 in Frameworks */ = {isa = PBXBuildFile; productRef = 62B8702626982FC60078BFB2 /* LanguageTranslatorV3 */; };
+		62C4E5DE2850858700224761 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C4E5DD2850858700224761 /* Language.swift */; };
 		62EB5C1B269E839F001DA95A /* Translator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62EB5C1A269E839F001DA95A /* Translator.swift */; };
 		62EB5C1E269E8421001DA95A /* APIInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62EB5C1D269E8421001DA95A /* APIInfo.swift */; };
 		62EB5C26269E93A9001DA95A /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 62EB5C25269E93A9001DA95A /* Moya */; };
@@ -37,6 +38,7 @@
 		62B870122698194E0078BFB2 /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
 		62B8701726981DAF0078BFB2 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		62B8701A269823910078BFB2 /* Defaults++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Defaults++.swift"; sourceTree = "<group>"; };
+		62C4E5DD2850858700224761 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		62EB5C1A269E839F001DA95A /* Translator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Translator.swift; sourceTree = "<group>"; };
 		62EB5C1D269E8421001DA95A /* APIInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIInfo.swift; sourceTree = "<group>"; };
 		62EB5C29269E93CC001DA95A /* GoogleTranslateAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleTranslateAPI.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				62EB5C1A269E839F001DA95A /* Translator.swift */,
+				62C4E5DD2850858700224761 /* Language.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -252,6 +255,7 @@
 				62B8701B269823910078BFB2 /* Defaults++.swift in Sources */,
 				62EB5C2C269E9626001DA95A /* GoogleTranslateModels.swift in Sources */,
 				62B870132698194E0078BFB2 /* MenuViewModel.swift in Sources */,
+				62C4E5DE2850858700224761 /* Language.swift in Sources */,
 				62EB5C1E269E8421001DA95A /* APIInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -394,7 +398,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "dev.PangMo5.Swifty-OCR-Translator";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -421,7 +425,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "dev.PangMo5.Swifty-OCR-Translator";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
