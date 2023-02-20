@@ -4,7 +4,7 @@ Screen translator for macOS with Apple Vision API and IBM Watson, Google Cloud T
 ## Usage
 1. Select Translator
 2. Fill in the API fields for each translator. ([IBM](https://cloud.ibm.com/docs/language-translator?topic=language-translator-gettingstarted#prerequisites), [Google](https://cloud.google.com/translate/docs/setup))
-3. Select Source and Target lanuages
+3. Select Source and Target languages
 4. Press [⌘ + ⇧ + 1] 
 5. Drag the area with the text you want to translate.
 
